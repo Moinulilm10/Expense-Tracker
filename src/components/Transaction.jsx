@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export const Transaction = ({ transaction }) => {
   const sign = transaction.amount < 0 ? "-" : "+";
@@ -11,4 +12,12 @@ export const Transaction = ({ transaction }) => {
       <button className="delete-btn">x</button>
     </li>
   );
+};
+
+Transaction.propTypes = {
+  transaction: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }).isRequired,
 };
